@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>谷歌示例图</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+</body>
+<script src="http://www.google.cn/maps/api/js?key=AIzaSyASLnTw-cNPYjDDwXsxzAqBU8tLkiUHN3c"></script>
+<script src="../main/jquery-1.8.3.min.js"></script>
+<script src="../main/plug-in/goolge.js"></script>
+<script src="../main/fun/GMap-fun.js"></script>
+<script src="../main/NMap.js"></script>
+<script>
+    //lat 纬度 X           lng 经度  Y
+    var map = $('#map').NMap('GMap');
+    map.getlatLng(function(e){
+        alert('经纬度'+ e.lng+' : '+e.lat)
+    });
+</script>
+</html>

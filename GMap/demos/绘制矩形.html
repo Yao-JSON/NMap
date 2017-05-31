@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制矩形</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/NMap-css.css">
+</head>
+<body>
+<div id="map"></div>
+</body>
+<script src="http://www.google.cn/maps/api/js?key=AIzaSyASLnTw-cNPYjDDwXsxzAqBU8tLkiUHN3c&libraries=drawing"></script>
+<script src="../main/jquery-1.8.3.min.js"></script>
+<script src="../main/plug-in/goolge.js"></script>
+<script src="../main/fun/GMap-fun.js"></script>
+<script src="../main/google/GMap-style.js"></script>
+<script src="../main/NMap.js"></script>
+<script>
+    var map = $('#map').NMap('GMap');
+    var s ={
+        type:'rect',//矩形
+        editable:true,//是否可以编辑
+        drggable:true,//是否可以拖放
+        onDrawingComplete:function(o){//绘图完成
+            var maker1,maker2;
+            var map = o.map;
+
+            //console.log(o.bounds);
+        },
+        onClick:function(){//点击
+
+        },
+        onDrag:function(){//拖放中
+
+        },
+        onDragstart:function(){
+
+        },
+        onDragend:function(){
+
+        },
+        bounds_changed:function(){//矩形
+            //console.log(arguments);
+        }
+    };
+    map.drawing(s);
+</script>
+</html>

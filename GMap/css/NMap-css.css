@@ -1,0 +1,82 @@
+*{box-sizing: border-box}
+html{font-size: 62.5%;color: #000;background: #ffffff;}
+body, div, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+td{border:1px solid #DEE0E2}
+fieldset,img {border:0;}
+address,caption, cite,code,dfn,em,strong,th,var,i,b,u,s{font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+capation,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before, q:after{content:' '}
+abbr,acronym{border:0;}
+body{font-size: 1.2rem;font-family: "Microsoft YaHei UI";
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+.clear:after{
+    content:" ";
+    display: block;
+    clear: both;
+}
+
+/* 标点图例 */
+.NMap-legend{
+    border: 2px solid #020304;
+    background: #ffffff;
+    padding: 5px 10px;
+    margin:15px;
+}
+.NMap-legend >li{
+    cursor: pointer;
+    padding: 5px 6px;
+}
+.NMap-legend span{
+    padding-left: 8px;
+    font-size: 1.6rem;
+}
+.NMap-legend li.hover span{
+    color:#CCCCCC;
+}
+.NMap-legend li.hover span.rect,.NMap-legend li.hover span.circle,.NMap-legend li.hover span.label{
+    background-color:#CCCCCC !important;
+}
+.NMap-legend li span:hover{
+    color:#000;
+}
+.NMap-legend img{
+    vertical-align: middle;
+}
+.NMap-legend span.rect{
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    vertical-align: bottom;
+}
+.NMap-legend span.circle{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+    border-radius: 50%;
+}
+.NMap-legend  span.label{
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    vertical-align: bottom;
+}
+/* 标签覆盖物 */
+.NMap-labelOverlay{
+    padding: 5px 10px;
+    height: 40px;
+    line-height: 30px;
+    opacity: 0.8;
+    color: #fff;
+    box-shadow: 0 0 10px #000;
+    border-radius: 4px;
+    cursor: pointer;
+}

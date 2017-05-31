@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>谷歌示例图</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/NMap-css.css">
+</head>
+<body>
+<div id="map"></div>
+</body>
+<script src="http://www.google.cn/maps/api/js?key=AIzaSyASLnTw-cNPYjDDwXsxzAqBU8tLkiUHN3c"></script>
+<script src="../main/jquery-1.8.3.min.js"></script>
+<script src="../main/plug-in/goolge.js"></script>
+<script src="../main/fun/GMap-fun.js"></script>
+<script src="../main/google/GMap-style.js"></script>
+<script src="../main/NMap.js"></script>
+<script>
+    //lng 经度  lat:纬度
+    var set ={
+        zoom:4,
+        center:{lat:20+Math.random()*10,lng:103+Math.random()*10}
+    }
+    //初始化地图
+    var map = $('#map').NMap('GMap',set);
+
+    for(var i = 0,arr2=[],arr1=[];i<500;i++){
+        arr1[i] = {lat:20+Math.random()*10,lng:103+Math.random()*10,text:"点0"+i};
+        arr2[i] = {lat:20+Math.random()*10,lng:113+Math.random()*10,text:"点1"+i};
+    }
+    var s={
+        legend:true,//是否显示图例
+        markerIcon:true,//多边形标点序号
+        zoom:4,//缩放比例
+        center:{lat:20,lng:103},//地图中心点
+        data:[{
+            data:arr1,
+            text:"多边形一",
+            contentStr:'<div id="content">'+//地图展示消息
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+            'sandstone rock formation in the southern part of the '+
+            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+            'south west of the nearest large town, Alice Springs; 450&#160;km '+
+            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+            'Aboriginal people of the area. It has many springs, waterholes, '+
+            'rock caves and ancient paintings. Uluru is listed as a World '+
+            'Heritage Site.</p>'+
+            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>',
+            onClick:function(arr,latLng){
+                /*console.log(arr);
+                console.log(latLng);*/
+                console.log(latLng);
+                map.setCenter(latLng);
+            }
+        },{
+            data:arr2,
+            text:"多边形一",
+            contentStr:'<div id="content">'+//地图展示消息
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+            'sandstone rock formation in the southern part of the '+
+            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+            'south west of the nearest large town, Alice Springs; 450&#160;km '+
+            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+            'Aboriginal people of the area. It has many springs, waterholes, '+
+            'rock caves and ancient paintings. Uluru is listed as a World '+
+            'Heritage Site.</p>'+
+            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>',
+            onClick:function(arr,latLng){
+                /*/!*console.log(arr);
+                 console.log(latLng);
+                console.log(latLng);*/
+                map.setCenter(latLng);
+            }
+        }]
+    }
+    function f(arr){
+        console.log(arr);
+    }
+    var arr = map.polygon(s,f);// 参数一 s 配置信息 f 是绘图完成的回调函数
+     console.log(arr);
+    var r = arr[0]['info']['inCircleR'];
+    var c = arr[0]['info']['centerCircle']
+    var ker = {
+        lat:24.67,
+        lng: 117.92
+    };
+    var d = map.getDistance(c,ker);
+    console.log(d);
+    console.log(d<=r);
+</script>
+</html>

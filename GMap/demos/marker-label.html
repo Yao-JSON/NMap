@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>谷歌示例图</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/NMap-css.css">
+</head>
+<body>
+<div id="map"></div>
+</body>
+<script src="http://www.google.cn/maps/api/js?key=AIzaSyASLnTw-cNPYjDDwXsxzAqBU8tLkiUHN3c"></script>
+<script src="../main/jquery-1.8.3.min.js"></script>
+<script src="../main/plug-in/goolge.js"></script>
+<script src="../main/fun/GMap-fun.js"></script>
+<script src="../main/google/GMap-style.js"></script>
+<script src="../main/NMap.js"></script>
+<script>
+    var map = $('#map').NMap('GMap');
+    var s = {
+        legend:true,
+        data:[{
+            data:[{
+                center:[34,103],
+                title:'位置1',
+                onClick:function(e){
+                    console.log(arguments)
+                },
+                infowindow:"你好",
+                label:"河南省",
+                overlay:'王明合作社:123456',
+                areacode:'45454',
+                formatter:function(txt){
+                    return txt+"-++";
+                },
+                options:{
+                    area:45845
+                },
+                onLoad:function(c){
+                    console.log(c)
+                }
+            }],
+            text:"河南省"
+        },{
+            data:[{
+                center:[33,102],
+                title:'Drag me',
+                draggable:true,
+                infowindow:"大家好",
+                label:"郑州市",
+                overlay:'王一:123456'
+            }],
+            text:'郑州市'
+        },{
+            data:[{
+                center:[33,101],
+                title:'位置3',
+                onClick:function(e){
+                    alert('经纬度'+ e.lat+' : '+e.lng)
+                },
+                label:"金水区",
+                overlay:'王二:123456'
+            }],
+            text:'金水区'
+        },{
+            text:"学校",
+            data:[{
+                center:[24,103],
+                title:'位置4',
+                onClick:function(e){
+                    console.log(this);
+                },
+                infowindow:"你好！",
+                infowindowIsOpen:true,
+                label:"金水区1",
+                overlay:'王3:123456'
+            },{
+                center:[23,102],
+                title:'Drag me1',
+                draggable:true,
+                infowindow:"大家好",
+                label:"金水区2",
+                overlay:'王4:123456'
+            },{
+                center:[23,101],
+                title:'位置3',
+                onClick:function(e){
+                    console.log(e)
+                },
+                label:"金水区3",
+                overlay:'王5:123456'
+            }]
+        }]
+    };
+    map.markerLabel(s);
+</script>
+</html>
